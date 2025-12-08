@@ -10,6 +10,12 @@ test.beforeEach(async ({ page }) => {
   await homepage.acceptCookies();
 });
 
-test('has title', async ({ page }) => {
+test('Verify homepage title', {
+    annotation: {
+      type: 'AlwaysRun',
+      description: 'This is to ensure the homepage title is always checked, regardless of other test conditions.',
+    },
+  }, async ({ page }) => {
+  
   await expect(page).toHaveTitle('Amazon.co.uk: Low Prices in Electronics, Books, Sports Equipment & more');
 });

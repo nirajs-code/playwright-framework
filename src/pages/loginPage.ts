@@ -9,7 +9,6 @@ export class LoginPage {
     constructor(readonly page: Page) {
         this.accountAndListsLink = this.page.getByRole("link", { name: "Account & Lists" });
         this.signInLink = this.page.getByRole("link", { name: "Hello, sign in" });
-        // Match "Sign in" with any amount of whitespace/newlines
         this.signInHeading = this.page.getByRole("heading", { name: /Sign\s+in/i });
     }
 

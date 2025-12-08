@@ -6,6 +6,7 @@ let homepage: Homepage;
 let loginPage: LoginPage;
 
 test.describe('Login Page Tests', () => {
+    test.skip(({ browserName }) => browserName !== 'chromium', 'Chromium only!');
 
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
@@ -13,7 +14,7 @@ test.describe('Login Page Tests', () => {
         await homepage.acceptCookies();
     });
 
-    test('navigate to login page', async ({ page }) => {
+    test('Verify navigate to login page', {tag: '@login'}, async ({ page }) => {
         loginPage = new LoginPage(page);
         await loginPage.clickAccountAndLists();
         //   await loginPage.clickSignIn();

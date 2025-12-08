@@ -9,7 +9,12 @@
     "test:debug": "playwright test --debug",
     "test:login": "npx playwright test src/tests/login.spec.ts",
     "test:show-report": "npx playwright show-report",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "record:codegen": "npx playwright codegen",
+    "test:ui": "npx playwright test --project=chromium --ui",
+    "test:lastfailed": "npx playwright test --last-failed",
+    "test:tags": "npx playwright test --grep @tag",
+    "test:skiptag": "npx playwright test --grep-invert @tag"
   },
   "keywords": [],
   "author": "",

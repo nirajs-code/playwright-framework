@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { click } from '../utils/utils';
 
 interface Locators {
     acceptCookiesButton: Locator;
@@ -21,7 +22,7 @@ export class Homepage {
     }
 
     public async acceptCookies(): Promise<void> {
-        await this.locators().acceptCookiesButton.click();
+        await click(this.locators().acceptCookiesButton);
     }
 
     public async navigateToHomePage() : Promise<void> {
