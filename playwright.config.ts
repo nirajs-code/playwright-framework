@@ -24,6 +24,12 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+  globalSetup: require.resolve('./global-setup.ts'),
+
+  // Each test is given 30 seconds.
+  timeout: 30000,
+
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: process.env.URL,
@@ -34,6 +40,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     headless: false,
     // viewport: { width: 1280, height: 720 }
+    storageState: 'playwright/.auth/state.json'
   },
 
   /* Configure projects for major browsers */

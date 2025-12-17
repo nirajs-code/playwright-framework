@@ -11,6 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Verify homepage title', {
+    tag: '@homepageTitle',
     annotation: {
       type: 'AlwaysRun',
       description: 'This is to ensure the homepage title is always checked, regardless of other test conditions.',

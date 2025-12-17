@@ -22,7 +22,13 @@ export class Homepage {
     }
 
     public async acceptCookies(): Promise<void> {
-        await click(this.locators().acceptCookiesButton);
+        try {
+            const acceptButton = this.locators().acceptCookiesButton;
+            await acceptButton.waitFor({ state: 'visible', timeout: 5000 });
+            await click(acceptButton);
+        } catch (e) {
+            console.log('Cookie button not found, skipping...');
+        }
     }
 
     public async navigateToHomePage() : Promise<void> {

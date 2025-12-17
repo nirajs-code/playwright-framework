@@ -14,12 +14,17 @@ test.describe('Login Page Tests', () => {
         await homepage.acceptCookies();
     });
 
-    test('Verify navigate to login page', {tag: '@login'}, async ({ page }) => {
+    test('Verify navigate to login page', {tag: '@login1'}, async ({ page }) => {
         loginPage = new LoginPage(page);
         await loginPage.clickAccountAndLists();
         //   await loginPage.clickSignIn();
         const isVisible =  await loginPage.isSignInHeadingVisible();
         test.expect(isVisible).toBeTruthy();
     });
-    
+
+    test('User is able to login with valid credentials', {tag: '@login2'}, async ({ page }) => {
+        loginPage = new LoginPage(page);
+        await loginPage.clickAccountAndLists();
+        await loginPage.login(process.env.USERNAME, process.env.PASSWORD);
+    });
 });
