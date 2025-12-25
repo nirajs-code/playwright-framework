@@ -13,8 +13,15 @@
     "record:codegen": "npx playwright codegen",
     "test:ui": "npx playwright test --project=chromium --ui",
     "test:lastfailed": "npx playwright test --last-failed",
-    "test:tags": "npx playwright test --grep @tag",
-    "test:skiptag": "npx playwright test --grep-invert @tag"
+    "test:tags": "npx playwright test --grep @testauthsetup",
+    "test:tags:debug": "npx playwright test --grep @homepageTitle --debug",
+    "test:skiptag": "npx playwright test --grep-invert @login2",
+    "test:parallel": "npx playwright test --workers=4",
+    "test:serial": "npx playwright test --workers=1",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "lint:check": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "clean": "rm -rf test-results playwright-report playwright/.auth/state.json"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +32,8 @@
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.7.4",
     "typescript-eslint": "^8.48.1"
   },
   "dependencies": {

@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { config } from "src/config/config";
 
 export class LoginPage {
 
@@ -21,7 +22,7 @@ export class LoginPage {
     }
 
     public async clickAccountAndLists(): Promise<void> {
-        await this.accountAndListsLink.waitFor({ state: 'visible', timeout: 10000 });
+        await this.accountAndListsLink.waitFor({ state: 'visible', timeout: config.timeout });
         await this.accountAndListsLink.click();
     }
 
@@ -31,9 +32,9 @@ export class LoginPage {
 
     public async isSignInHeadingVisible(): Promise<boolean> {
         try {
-            await this.signInHeading.waitFor({ state: 'visible', timeout: 10000 });
+            await this.signInHeading.waitFor({ state: 'visible', timeout: config.timeout });
             return true;
-        } catch (e) {
+        } catch {
             return false;
         }
     }

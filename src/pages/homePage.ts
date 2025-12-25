@@ -26,7 +26,7 @@ export class Homepage {
             const acceptButton = this.locators().acceptCookiesButton;
             await acceptButton.waitFor({ state: 'visible', timeout: 5000 });
             await click(acceptButton);
-        } catch (e) {
+        } catch {
             console.log('Cookie button not found, skipping...');
         }
     }
