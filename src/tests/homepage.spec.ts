@@ -1,20 +1,16 @@
-import { test, expect } from '@playwright/test';
-import { Homepage } from 'src/pages/homePage';
-
-let homepage: Homepage;
+import { test, expect } from '../fixtures/fixtures';
 
 test.describe('Homepage Tests', () => {
 
   test.skip(({ browserName }) => browserName !== 'chromium', 'Chromium only!');
 
-  test.beforeEach(async ({ page }) => {
-    homepage = new Homepage(page);
-    await homepage.navigateToHomePage();
+  test.beforeEach(async ({ homePage, page }) => {
+    // await homePage.navigateToHomePage();
     try {
       const acceptButton = page.getByRole('button', { name: 'Accept' });
       const isVisible = await acceptButton.isVisible({ timeout: 2000 }).catch(() => false);
       if (isVisible) {
-        await homepage.acceptCookies();
+        await homePage.acceptCookies();
       }
     } catch {
       console.log('cookies not found, skip cookie acceptance');

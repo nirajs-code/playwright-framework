@@ -31,10 +31,9 @@ export class Homepage {
         }
     }
 
-    public async navigateToHomePage() : Promise<void> {
-        await this.page.goto('/', {
-            waitUntil: 'domcontentloaded'
-        });
-    }
-
+    // public async navigateToHomePage() : Promise<void> {
+    //     await this.page.goto('/', {
+    //         waitUntil: 'domcontentloaded'
+    //     });
+    // }
 }
