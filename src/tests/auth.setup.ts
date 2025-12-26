@@ -1,11 +1,12 @@
 import { test as setup } from '@playwright/test';
 import { config } from '../config/config';
+import { testData } from 'src/data/testData';
 
 const STORAGE_STATE = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({ page, context }) => {
-  const username = config.username;
-  const password = config.password;
+  const username = testData.users.validUser.username;
+  const password = testData.users.validUser.password;
   const timeout = config.timeout;
 
   if (!username || !password) {

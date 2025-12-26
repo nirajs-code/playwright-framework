@@ -1,5 +1,4 @@
 import { Locator, Page } from '@playwright/test';
-import { click } from '../utils/utils';
 
 interface Locators {
     acceptCookiesButton: Locator;
@@ -25,7 +24,7 @@ export class Homepage {
         try {
             const acceptButton = this.locators().acceptCookiesButton;
             await acceptButton.waitFor({ state: 'visible', timeout: 5000 });
-            await click(acceptButton);
+            await acceptButton.click();
         } catch {
             console.log('Cookie button not found, skipping...');
         }

@@ -1,4 +1,5 @@
 import { test, expect } from '../fixtures/fixtures';
+import { testData } from '../data/testData';
 
 test.describe('Homepage Tests', () => {
 
@@ -24,7 +25,7 @@ test.describe('Homepage Tests', () => {
       description: 'This is to ensure the homepage title is always checked, regardless of other test conditions.',
     },
     }, async ({ page }) => {
-      await expect(page).toHaveTitle('Amazon.co.uk: Low Prices in Electronics, Books, Sports Equipment & more');
+      await expect(page).toHaveTitle(testData.expectedTexts.homepage.title);
   });
 
   test('Verify user is already logged in', {
